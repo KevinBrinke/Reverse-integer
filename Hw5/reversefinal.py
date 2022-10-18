@@ -1,31 +1,35 @@
+#Kevin Brinke R01423368
+#Q2
+
+
 test = True
 flag = False
-
+#using math
 # def reverse(num):
-#   rev_num = 0
+#   revNum = 0
 #   while num != 0:
 #     d = num % 10
-#     rev_num = rev_num * 10 + d
+#     revNum = revNum * 10 + d
 #     num //= 10
 #   if flag:
-#     return rev_num * -1
-#   return rev_num
+#     return revNum * -1
+#   return revNum
 
-def other_reverse(num):
-  ans = num[::-1]
+def other_reverse(num):#using string
+  revAns = num[::-1]
   if flag:
-    ans=eval("-" + ans)
-   # return "-" + ans
-  return ans
+    revAns=eval("-" + revAns)
+   # return "-" + revAns
+  return revAns
 
 while(test):
-  userIn = input("enter num: ")
-  if userIn[0] == "-":
+  userIn = input("Enter number that will be reversed: ")
+  if userIn[0] == "-": #global flag to add negative back to integer later, so .isdigit works
     flag = True
-    userIn = userIn[1:]
+    userIn = userIn[1:]#eliminates 0th position of string which will be negative 
   if not userIn.isdigit():
     print("not an integer")
   else:
-    print(other_reverse(userIn))
+    print("The reversed number is: ",other_reverse(userIn))
     # print(reverse(int(userIn)))
     test = False
