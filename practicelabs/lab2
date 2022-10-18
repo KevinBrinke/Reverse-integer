@@ -1,0 +1,12 @@
+#lab006 week 2 
+#problem 1
+#convert temperature c to f
+
+
+
+
+temperatureCel= eval(input("Enter the temperature in Celcius: "))
+temperatureFar = temperatureCel*(9/5)+32
+print(temperatureFar)
+
+print("This the temp ",temperatureCel, "converted into Far: ", temperatureFar)
