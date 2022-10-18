@@ -14,17 +14,18 @@ flag = False
 def other_reverse(num):
   ans = num[::-1]
   if flag:
-    return "-" + ans
+    ans=eval("-" + ans)
+   # return "-" + ans
   return ans
 
 while(test):
-  user_in = input("enter num: ")
-  if user_in[0] == "-":
+  userIn = input("enter num: ")
+  if userIn[0] == "-":
     flag = True
-    user_in = user_in[1:]
-  if not user_in.isdigit():
+    userIn = userIn[1:]
+  if not userIn.isdigit():
     print("not an integer")
   else:
-    print(other_reverse(user_in))
-    # print(reverse(int(user_in)))
+    print(other_reverse(userIn))
+    # print(reverse(int(userIn)))
     test = False

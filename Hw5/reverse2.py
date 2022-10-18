@@ -17,6 +17,7 @@ while(test):
   userIn = input("enter num: ")
   if userIn[0] == "-":
     flag = True
+    userIn= userIn[1]
     if not userIn.isdigit():    
         print("not an integer")
     else:
