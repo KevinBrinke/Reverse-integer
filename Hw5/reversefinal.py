@@ -19,7 +19,7 @@ def other_reverse(num):#using string
   revAns = num[::-1]
   if flag:
     revAns=eval("-" + revAns)
-   # return "-" + revAns
+   # return "-" + revAns #can return as a string if wanted
   return revAns
 
 while(test):
