@@ -19,6 +19,7 @@ class Rectangle:
         return (2*self.height+2*self.width)
 
 
-
+    def setHeight(self, heightChange):
+        self.height=heightChange
 
 
