@@ -29,7 +29,7 @@ class MyApp:
 	def button2Click(self, event):
 		report_event(event)   ### (4)
 		self.myParent.destroy()      
-  
+  #change
 def report_event(event):     ### (5)
 	"""Print a description of an event, based on its attributes.
 	"""

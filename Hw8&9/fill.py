@@ -29,13 +29,13 @@ class Options:
 
     def makeRectangle(self):
         print("This rectangle") 
-        self.canvas.delete("shape")
+        self.canvas.delete("shape","filled")
         self.canvas.create_rectangle(10,10,290,60,tags="shape")
         if self.fillVar.get():
             self.canvas.create_rectangle(10,10,290,60,fill="Gray",tags=("filled"))
     def makeOval(self):
         print("This Oval")
-        self.canvas.delete("shape")
+        self.canvas.delete("shape","filled")
         self.canvas.create_oval(10,10,290,60,tags="shape")
         if self.fillVar.get():
             self.canvas.create_oval(10,10,290,60,fill="Gray",tags=("filled"))
