@@ -51,7 +51,7 @@ def main():
         userInput=input("Enter a password with the following conditions:\n\t1.Must be at least 8 characters\n\t2.Must consist of only digits and letters\n\t3.Must contain at least 2 digits\n\nNew Password: ")
        
 
-        if account.setPassword(userInput) is True:
+        if account.setPassword(userInput) is True:#continues the while loop if false
             passCheck = True
         
     
