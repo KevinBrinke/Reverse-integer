@@ -1,3 +1,6 @@
+#kevin brinke R01423368
+
+
 from tkinter import *
 
 #i cannot figure out for the life of me how to do the color on the buttons properly, 
