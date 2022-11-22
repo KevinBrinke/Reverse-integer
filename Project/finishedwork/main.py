@@ -5,9 +5,9 @@ from utils import scale_image,blit_rotate_center
 
 
 
-WATER = scale_image(pygame.image.load("imgs/MAP/backgroundwater.png"), 1)
-ICEBERG = scale_image(pygame.image.load("imgs/MAP/icebergisolated.png"), .85)
-BOUNDARY = scale_image(pygame.image.load("imgs/MAP/barrier.png"), .85)
+WATER = scale_image(pygame.image.load("imgs/backgroundwater.png"), 1)
+ICEBERG = scale_image(pygame.image.load("imgs/icebergisolated.png"), .85)
+BOUNDARY = scale_image(pygame.image.load("imgs/barrier.png"), .85)
 
 TRACK_BORDER = scale_image(pygame.image.load("imgs/track-border.png"), 1)
 FINISH = scale_image(pygame.image.load("imgs/finish.png"), 1)
