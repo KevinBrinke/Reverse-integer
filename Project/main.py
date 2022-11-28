@@ -2,27 +2,32 @@ import pygame
 import math
 import time
 from utils import scale_image,blit_rotate_center
+import sys
 
 
 
 WATER = scale_image(pygame.image.load("imgs/backgroundwater.png"), 1)
 
 #map coordinates pixels spawns
-x_map,y_map=213,210
+x_,y_map=213,210
+x_offeset,y_offset = 155,145
 ICEBERG = scale_image(pygame.image.load("imgs/icebergisolated.png"), .85)
 BOUNDARY = scale_image(pygame.image.load("imgs/barrier.png"), .85)
-BOUNDARY_MASK = pygame.mask.from_surface(BOUNDARY)
+BOUNDARY_BORDER = scale_image(pygame.image.load("imgs/barrier.png"), 1.02)
+BOUNDARY_MASK = pygame.mask.from_surface(BOUNDARY_BORDER)
 
 TRACK_BORDER = scale_image(pygame.image.load("imgs/track-border.png"), 1)
 FINISH = scale_image(pygame.image.load("imgs/finish.png"), 1)
 
-POLAR_BEAR = scale_image(pygame.image.load("imgs/wolfbear.jpg"), .07)
-CUTE_BEAR = scale_image(pygame.image.load("imgs/cutebear.jpg"), .045)
+INVERT_BEAR = scale_image(pygame.image.load("imgs/invertbearpixel.png"), .5)
+CUTE_BEAR = scale_image(pygame.image.load("imgs/regularbearpixel.png"), .5)
+# INVERT_BEAR_MASK = pygame.mask.from_surface(INVERT_BEAR)
+# CUTE_BEAR_MASK = pygame.mask.from_surface(CUTE_BEAR)
 
 
 WIDTHBACK, HEIGHTBACK= WATER.get_width(), WATER.get_height()
 WIDTH, HEIGHT= BOUNDARY.get_width(), BOUNDARY.get_height()
-print(WIDTH,HEIGHT,WIDTHBACK,HEIGHTBACK)
+print(WIDTH,HEIGHT,WIDTHBACK,HEIGHTBACK,BOUNDARY_BORDER.get_width(),BOUNDARY_BORDER.get_height())
 WINDOW = pygame.display.set_mode((WIDTHBACK, HEIGHTBACK))
 pygame.display.set_caption("Polar Push")
 
@@ -31,14 +36,14 @@ FPS = 60
 class AbstractBear:
 
     def __init__(self, max_vel,rotation_vel):
-        self.img=self.IMG
-
+        self.img = self.IMG
+        self.bear_mask = self.BEAR_MASK
         self.max_vel = max_vel
         self.vel = 0
         self.rotation_vel = rotation_vel
-        self.angle = 90
+        self.angle = self.START_ANGLE
         self.x, self.y = self.START_POS
-        self.acceleration= 0.1
+        self.acceleration= 0.2
 
     def rotate(self, left=False, right=False):
         if left:
@@ -76,17 +81,30 @@ class AbstractBear:
     def ice_slide(self):
         print("not ready yet")
     
-    def collide(self, mask, x= x_map, y= y_map):
-        bear1_mask = pygame.mask.from_surface(self.img)
-        bear2_mask = pygame.mask.from_surface(self.img)
-        offset = (int(self.x - x), int(self.y - y ))
-        poi = mask.overlap(bear1_mask, offset)#point of interesction = poi 
+    def collide(self, mask, x= x_offeset, y= y_offset):
+       
+        # bear2_mask = pygame.mask.from_surface(self.img)
+        offset_boundary = (int(self.x - x), int(self.y - y ))
+        poi = mask.overlap(self.bear_mask, offset_boundary)#point of interesction = poi 
         return poi
 
 
+    def bumper1(self, mask):
+        self.bear_mask
+        poi_bears = self.bear_mask.overlap(mask,(2,0))
+        return poi_bears
+    def bumper2(self,mask):
+        bear_mask = pygame.mask.from_surface(bear_mask)
+    def hit(self,direction):
+        self.x-=1
+        self.y-=0
+ 
+
 class PlayerBear(AbstractBear):
-    IMG = POLAR_BEAR
-    START_POS = (400,450)
+    IMG = INVERT_BEAR
+    START_POS = (320,475)
+    START_ANGLE = 270
+    BEAR_MASK = pygame.mask.from_surface(IMG)
 
     def bounce(self):
         self.vel = -self.vel
@@ -94,7 +112,9 @@ class PlayerBear(AbstractBear):
 
 class PlayerBear2(AbstractBear):
     IMG = CUTE_BEAR
-    START_POS = (500,450)
+    START_POS = (650,475)
+    START_ANGLE = 90
+    BEAR_MASK = pygame.mask.from_surface(IMG)
     def bounce(self):
         self.vel = -self.vel
         self.move()
@@ -148,10 +168,10 @@ def move_player(player1_bear,player2_bear):
 
 run = True
 clock=pygame.time.Clock()
-images=[(WATER, (0, 0)), (ICEBERG, (x_map, y_map)), (BOUNDARY, (x_map, y_map))]
+images=[(WATER, (0, 0)), (ICEBERG, (x_, y_map)), (BOUNDARY, (x_, y_map))]
 
-player1_bear = PlayerBear(4,4)
-player2_bear = PlayerBear2(4,4)
+player1_bear = PlayerBear(6,6)
+player2_bear = PlayerBear2(6,6)
 
 #run window
 while run:
@@ -175,6 +195,8 @@ while run:
         player1_bear.bounce()
     if player2_bear.collide (BOUNDARY_MASK) != None:
         player2_bear.bounce()
+    if player1_bear.bumper1(player2_bear.BEAR_MASK) != None:
+        player2_bear.hit(1)
 
 
 
