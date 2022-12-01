@@ -183,15 +183,16 @@ def draw(screen,map_images,player_one,player_two):
 while run == True:
     player_one.choose_bear()
     player_two.choose_bear()
-    draw(screen,map_images,player_one,player_two)
-            # if event.type == pygame.KEYDOWN:
-            #     if event.type ==pygame.K_m:
-            #         game_active=False
-    move_bear_keys(player_one, player_two)
-     
-    pygame.draw.rect(screen,'Black', pygame.Rect(286,21,228,48))
-    pygame.draw.rect(screen,'#00e8ec', pygame.Rect(290,25,220,40))
-    display_time_left()
+    if game_active:
+        draw(screen,map_images,player_one,player_two)
+                # if event.type == pygame.KEYDOWN:
+                #     if event.type ==pygame.K_m:
+                #         game_active=False
+        move_bear_keys(player_one, player_two)
+        
+        pygame.draw.rect(screen,'Black', pygame.Rect(286,21,228,48))
+        pygame.draw.rect(screen,'#00e8ec', pygame.Rect(290,25,220,40))
+        display_time_left()
     if player_one.collide(boundary_surf_mask,x_bounds,y_bounds) !=None:
                 player_one.bounce_to_center()
     if player_two.collide(boundary_surf_mask,x_bounds,y_bounds) !=None:
