@@ -1,12 +1,12 @@
 import pygame
 from sys import exit
 
-def display_score():
+def display_time():
     current_time =  int(pygame.time.get_ticks()/1000) - start_time
     time_left = 200- current_time
-    score_surf = test_font.render(f'Time: {time_left}',False,(64,64,64))
-    score_rect = score_surf.get_rect(center = (400,50))
-    screen.blit(score_surf,score_rect)
+    time_surf = test_font.render(f'Time: {time_left}',False,(64,64,64))
+    time_rect = time_surf.get_rect(center = (400,50))
+    screen.blit(time_surf,time_rect)
 
 
 pygame.init()
@@ -14,7 +14,7 @@ screen = pygame.display.set_mode((800,400))
 pygame.display.set_caption('Polar Push')
 clock = pygame.time.Clock()
 test_font = pygame.font.Font('font/Pixeltype.ttf', 50)
-game_active= True
+game_active= False
 start_time = 0
 
 sky_surf  =pygame.image.load('graphics/sky.png').convert()
@@ -55,10 +55,10 @@ while True:
         screen.blit(sky_surf,(0,0))
         pygame.draw.line(screen,'#ffffff', (0,0),(800,400),50)
         screen.blit(ground_surf,(0,300))
-        #score background
+        #time background
         pygame.draw.rect(screen,'Black', pygame.Rect(286,21,228,48))
         pygame.draw.rect(screen,'#00e8ec', pygame.Rect(290,25,220,40))
-        display_score()
+        display_time()
         # screen.blit(name_surf,name_rect)
 
         snail_rect.x -= 6

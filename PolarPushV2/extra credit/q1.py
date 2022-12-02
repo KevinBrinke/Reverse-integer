@@ -1,3 +1,6 @@
+#kevin Brinke R01423368
+#q1 extra credit
+
 isbn_9 = input("Enter the first 9-digit of an ISBN as a string: ")
 list = [isbn_9]
 if len(isbn_9) != 9 and  isbn_9.isdigit is False:
