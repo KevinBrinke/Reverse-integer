@@ -128,9 +128,7 @@ class PlayerBear(BearPhysics):
         return poi #point of intersection
     
     def bounce_to_center(self):
-        bounce_center_vel = 0
-        bounce_center_vel -= self.vel#turn tangent tangent to all center and bounce
-        
+        self.vel = 15
         self.reduce_speed()
     def bounce(self):
         print("bounce")
@@ -179,45 +177,41 @@ def draw(screen,map_images,player_one,player_two):
         screen.blit(img,pos)
     player_one.draw(screen)
     player_two.draw(screen)
-    
+    pygame.display.update()
 while run == True:
+    
     player_one.choose_bear()
     player_two.choose_bear()
-    if game_active:
-        draw(screen,map_images,player_one,player_two)
-                # if event.type == pygame.KEYDOWN:
-                #     if event.type ==pygame.K_m:
-                #         game_active=False
-        move_bear_keys(player_one, player_two)
-        
-        pygame.draw.rect(screen,'Black', pygame.Rect(286,21,228,48))
-        pygame.draw.rect(screen,'#00e8ec', pygame.Rect(290,25,220,40))
-        display_time_left()
-    if player_one.collide(boundary_surf_mask,x_bounds,y_bounds) !=None:
-                player_one.bounce_to_center()
-    if player_two.collide(boundary_surf_mask,x_bounds,y_bounds) !=None:
-                player_two.bounce_to_center()
     for event in pygame.event.get():
+        clock.tick(120)
 
         if event.type == pygame.QUIT: 
             pygame.quit 
             exit()
         if game_active:
-            a=0
+            draw(screen,map_images,player_one,player_two)
+            if event.type == pygame.KEYDOWN:
+                if event.type ==pygame.K_m:
+                    game_active=False
+            
+            pygame.draw.rect(screen,'Black', pygame.Rect(286,21,228,48))
+            pygame.draw.rect(screen,'#00e8ec', pygame.Rect(290,25,220,40))
+            display_time_left()
             #player controls-forward/back/left/right
             #others soon
 
+            move_bear_keys(player_one, player_two)
 
-            
-  
-
+            if player_one.collide(boundary_surf_mask,x_bounds,y_bounds) !=None:
+                player_one.bounce_to_center()
+            if player_two.collide(boundary_surf_mask,x_bounds,y_bounds) !=None:
+                player_two.bounce_to_center()
         else:
             if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                 game_active = True
                 
                 game_time_restart = int(pygame.time.get_ticks() / 1000)
         
-    clock.tick(fps)
-    pygame.display.update()
+        
         # screen.blit(name_surf,name_rect)
                 

@@ -1,6 +1,9 @@
+#Kevin Brinke R01423368
+
 isbn_9 = input("Enter the first 9-digit of an ISBN as a string: ")
 list = [isbn_9]
-if len(isbn_9) != 9 and  isbn_9.isdigit is False:
+
+if len(isbn_9) != 9 or isbn_9.isdigit() is False:
     print("Incorrect input")
 else:
 
@@ -16,7 +19,7 @@ else:
         check_sum = str(check_sum)
     list.append(check_sum)
     isbn_10 = list[0]+ list [1] 
-    print("The ISBN number is", isbn_10, end = "")
+    print("The ISBN number is", isbn_10)
     
 
     
