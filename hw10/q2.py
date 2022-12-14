@@ -2,7 +2,8 @@
 
 
 def findGrades(lst):
-    best = int(max(lst))
+    new_list = [int(x) for x in lst ]
+    best = (max(new_list))
     i = 0
 
     while i < len(lst):
