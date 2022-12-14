@@ -1,0 +1,62 @@
+
+    List is a collection which is ordered and changeable. Allows duplicate members.
+    Tuple is a collection which is ordered and unchangeable. Allows duplicate members.
+    Set is a collection which is unordered, unchangeable*, and unindexed. No duplicate members.*Set items are unchangeable, but you can remove and/or add items whenever you like
+    Dictionary is a collection which is ordered** and changeable. No duplicate members.
+
+
+IN
+in 
+
+this list["apple","banana", "cherry"]
+if "apple" in thislist:
+    print(yes)
+
+CHANGE
+thislist[1] = pear --- app, pear, cher
+[1:3] = pear,grape --- app pear grape
+[1:2] = pear, grape --- app ,pear, grape, cher
+
+[1:3] = "pear" --- apple , pear
+
+INSERT
+thislist.insert(2,pear) --- app ban pear cher
+
+APPEND adds to end of list
+
+EXTEND - adds iterable object ---list,tuple,sets,dict etc to end of list
+tropical = [ mango,pineapp,papaya]
+thislist.extend(tropical) --- app ban cher mango pine pap
+thistuple= ("kiwi","orange")
+with tuple dict set etc- output is still same --- app ban cher kiw orng
+
+REMOVE
+thislist.remove("banana") --- only one element of banana will be removed if 2 that 2nd one will still be there
+
+POP
+thislist.pop(1) --- apple cher
+thislist.pop() --- app ban --- removes last item by default 
+
+DEL
+del thislist[0]--- does the same thing --- deletes first item
+
+del thislist --- deletes whole list
+
+CLEAR
+thislist.clear() --- clears elements of the list but stills exists
+
+SHORTHAND to print item lists
+thislist = ["apple", "banana", "cherry"]
+[print(x,end=' ') for x in thislist[:2]] ---apple banana --- 0 and 1 elements 
+
+ANother way to print all items in loop
+thislist = ["apple", "banana", "cherry"]
+i = 0
+while i < len(thislist):
+  print(thislist[i])
+  i = i + 1
+
+ANOTHER
+thislist = ["apple", "banana", "cherry"]
+for i in range(len(thislist)):
+  print(thislist[i])

@@ -1,0 +1,27 @@
+
+
+1. ASCII is the character encoding standard for electronic communication. This function will return readable version of the data. If any
+        point of data within a variable is non-ascii character it will be replaced with escape characters. Ergo "6" will turn into "\xt6"
+
+2. Binary. Used to convert an integer number to a binary string prefixed with | Ob |
+
+3. Converts an integer number to a lowercase hexadecimal string. This string will be prefixed with | Ox |
+
+4. Converts an integer number to an octal string which is prefixed with | Oo |
+
+5. Returns a character from the specified Unicode code. For example: | chr(97) | will return ‘a’
+
+6. Converts a string representing a Unicode code returning the specified character delineated by the Unicode value. This is the inverse
+of chr(). For example: | ordc ‘a’ ) will return ‘97°
+
+1. ascii( identifier ) 
+
+2. bin(identifier ) 
+
+3. hex(identifier ) 
+
+4. oct(identifier ) 
+
+5. chr(identifier ) 
+
+6. ord(identifier ) 

@@ -1,0 +1,39 @@
+SORT
+thislist = [100, 50, 65, 82, 23] --- 23 to 100
+thislist.sort()
+
+
+thislist.sort(reverse=true) --- 100 to 23
+
+thislist.sort(key = str.lower)etc
+
+
+thislist.reverse() --- reverses list
+
+
+COPY
+mylist = thislist.copy() --- actually copies it, instead of just referencing it with list2=list1 list2 changes when list1 changes(not what we want), mylist is a new list with copy
+
+or
+
+LIST
+mylist = List(thislist) --- same way
+
+MAP()
+a = ['1','2','3']
+print(list(map(int,a))) performs int(a)--- as an example, this could be anything usable
+---1,2,3
+
+
+append()	Adds an element at the end of the list
+clear()	Removes all the elements from the list
+copy()	Returns a copy of the list
+count()	Returns the number of elements with the specified value
+extend()	Add the elements of a list (or any iterable), to the end of the current list
+index()	Returns the index of the first element with the specified value
+insert()	Adds an element at the specified position
+pop()	Removes the element at the specified position
+remove()	Removes the item with the specified value
+reverse()	Reverses the order of the list
+sort()	Sorts the list
+map()

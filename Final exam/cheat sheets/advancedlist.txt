@@ -1,0 +1,30 @@
+LIST COMPREHENSION
+
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = [1:2]
+
+for x in fruits:
+  if "a" in x:
+    newlist.append(x)
+
+print(newlist) --- app, ban, mang
+
+
+# Same as above
+newlist = [x for x in fruits if "a" in x]
+
+
+
+newlist = [expression for item in iterable if condition == True]
+
+ie.
+newlist = [x for x in fruits if x != "apple"] --- wont put apple in new list
+
+UPPERCASE
+newlist = [x.upper() for x in fruits]
+
+can set the output x
+newlist = ['hello' for x in fruits] --- 'hello''hello''hello''hello''hello'
+
+can add conditions to output x
+newlist = [x if x != "banana" else "orange" for x in fruits] --- "apple", "orange", "cherry", "kiwi", "mango"

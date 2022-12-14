@@ -1,0 +1,15 @@
+keys(): tuple -Returns a sequence of keys
+values(): tuple -Returns a sequence of values
+items(): tuple -Returns a sequence of tuples (key, value).
+clear(): void -Deletes all entries.
+get(key): value -Returns the value for the key.
+pop(key): value -Removes the entry for the key and returns its value.
+popitem(): tuple -Returns a randomly-selected key/value pair as a tuple andremoves the selected entry
+
+
+
+
+
+>>> person = {'name': 'Eric', 'age': 74}
+>>> "Hello, {name}. You are {age}.".format(**person)
+'Hello, Eric. You are 74.'

@@ -1,0 +1,12 @@
+str()
+bool()
+int()
+float() - from number or string
+complex() - complex(6j)
+
+list()
+tuple() A = tuple((1,'Hello',3.4) -  immutable
+range() 0 to i < x
+set() mutable, unordered, elements unique not iterable
+fronzenset()- creates a fronzenset variable
+dict() dictionary array - A = dict(name = 'Kevin', age 26)
